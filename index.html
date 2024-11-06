@@ -37,19 +37,19 @@
         }
 
         /* Estilos para la sección Nosotros */
-        .about-section {
+        .about-section, .personal-section {
             padding: 40px 20px;
             background-color: #f0f8ff;
             text-align: center;
             display: none; /* Oculto por defecto */
         }
 
-        .about-section h2 {
+        .about-section h2, .personal-section h2 {
             color: #004d99;
             margin-bottom: 20px;
         }
 
-        .about-content {
+        .about-content, .personal-content {
             max-width: 800px;
             margin: auto;
             color: #333;
@@ -57,7 +57,7 @@
             font-size: 1.1em;
         }
 
-        .about-content p {
+        .about-content p, .personal-content p {
             margin-bottom: 15px;
         }
 
@@ -146,6 +146,12 @@
             aboutSection.style.display = (aboutSection.style.display === "none" || aboutSection.style.display === "") ? "block" : "none";
         }
 
+        // Función para mostrar/ocultar la sección "Personal"
+        function togglePersonalSection() {
+            const personalSection = document.getElementById("personal");
+            personalSection.style.display = (personalSection.style.display === "none" || personalSection.style.display === "") ? "block" : "none";
+        }
+
         // Función para alternar la visibilidad del texto de servicios
         function toggleText(id) {
             const text = document.getElementById(id);
@@ -184,7 +190,7 @@
             serviceItems.forEach(item => {
                 const arrow = document.createElement("span");
                 arrow.className = "animated-arrow";
-                arrow.innerHTML = "➡️";
+                arrow.innerHTML = "➡️"; // Flecha hacia la derecha
                 item.querySelector("button").prepend(arrow);
             });
         });
@@ -200,7 +206,6 @@
                 alert("Contraseña incorrecta. Inténtelo de nuevo.");
             }
         }
-
     </script>
 </head>
 <body>
@@ -213,12 +218,22 @@
         <p>NIT 901807265-8</p>
     </header>
     <nav>
-        <a href="#buyer-persona">Buyer Persona</a> <!-- Buyer Persona agregado aquí -->
+        <a onclick="togglePersonalSection()">Personal</a> <!-- Renombrado y funcional -->
         <a onclick="toggleAboutSection()">Nosotros</a>
         <a href="#services">Servicios</a>
         <a href="#contact">Contacto</a>
         <a onclick="requestPassword()">Reporte Técnico</a>
     </nav>
+
+    <!-- Sección Personal -->
+    <section id="personal" class="personal-section" style="display: none;">
+        <h2>Sobre Mí</h2>
+        <div class="personal-content" style="max-width: 800px; margin: auto; color: #333; line-height: 1.6; font-size: 1.1em;">
+            <p>HOLA, SOY HENAN ROSENDO CASTRO. SOY TÉCNICO EN MANTENIMIENTO INDUSTRIAL Y ME APASIONA LA ELECTRÓNICA Y LA PARTE TÉCNICA.</p>
+            <p>TENGO HABILIDADES EN LA REPARACIÓN DE MÁQUINAS, EQUIPOS Y CUALQUIER COMPONENTE DONDE SE VEA INFLUIDA LA PARTE TÉCNICA, Y DISFRUTO REPARAR COSAS.</p>
+            <p>EN MI TIEMPO LIBRE, ME GUSTA CAPACITARME, ESTUDIAR Y REALIZAR PROYECTOS DE ELECTRÓNICA. EN EL MOMENTO, ESTOY AVANZANDO EN MI PROYECTO DE VIDA EN LA CREACIÓN DE MI PROPIA EMPRESA, DEDICADA A PRESTAR SERVICIOS DE MANTENIMIENTO TÉCNICO, DONDE YO MISMO ESTOY CREANDO MI PROPIA PÁGINA WEB, REALIZANDO LA PROGRAMACIÓN DESDE CERO.</p>
+        </div>
+    </section>
 
     <!-- Sección de Nosotros -->
     <section id="about" class="about-section">
@@ -228,7 +243,7 @@
         </div>
     </section>
 
-   <!-- Sección de Servicios -->
+    <!-- Sección de Servicios -->
     <section id="services" class="services">
         <h2>Nuestros Servicios</h2>
         <div class="service-container">
@@ -251,10 +266,7 @@
             <div class="service-item">
                 <h3>Electrobombas</h3>
                 <img src="8.jpg" alt="Electrobombas" style="width: 100%; border-radius: 8px; margin-top: 10px;">
-               
-              
-
-  <button onclick="toggleText('motobombas')"><i class="fas fa-water"></i></button>
+                <button onclick="toggleText('motobombas')"><i class="fas fa-water"></i></button>
                 <p id="motobombas">Mantenimiento y reparación de electrobombas para uso industrial y comercial, garantizando un óptimo rendimiento y durabilidad.</p>
             </div>
             <div class="service-item">
@@ -295,11 +307,10 @@
         </form>
     </section>
 
-   <!-- Botón flotante de WhatsApp -->
-<a href="https://wa.me/573212252409" target="_blank" style="position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; padding: 10px 15px; border-radius: 50px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); text-align: center; font-size: 18px; text-decoration: none;">
-    <i class="fab fa-whatsapp" style="font-size: 24px;"></i>
-</a>
-
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/573212252409" target="_blank" style="position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; padding: 10px 15px; border-radius: 50px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); text-align: center; font-size: 18px; text-decoration: none;">
+        <i class="fab fa-whatsapp" style="font-size: 24px;"></i>
+    </a>
 
 </body>
 </html>
